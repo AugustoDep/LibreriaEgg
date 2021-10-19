@@ -18,8 +18,7 @@ public class AutorServicio {
 	@Autowired
 	private AutorRepositorio autorRepositorio;
 	
-	@Autowired
-	private LibroServicio libroServicio;
+	
 
 	@Transactional
 	public Autor cargarAutor(String nombre) {
@@ -57,7 +56,7 @@ public class AutorServicio {
 		
 		try {
 			
-			libroServicio.eliminarAutorDesdeLibro(id);
+			
 			autorRepositorio.deleteById(id);
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -71,6 +70,20 @@ public class AutorServicio {
 
 		return autorRepositorio.buscarPorNombre(nombre);
 
+	}
+	
+	@Transactional
+	public Autor editarNombre(String id, String nombre) {
+		
+		Autor a =  autorRepositorio.getById(id);
+		a.setNombre(nombre);
+		
+		System.out.println(a.getNombre());
+		System.out.println(nombre);
+		System.out.println(id);
+		
+		return autorRepositorio.save(a);
+		
 	}
 
 }

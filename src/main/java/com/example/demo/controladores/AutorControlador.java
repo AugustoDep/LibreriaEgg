@@ -69,5 +69,19 @@ public class AutorControlador {
 		
 	}
 	
+	@GetMapping("/editar-nombre")
+	public String editarNombreAutor() {
+		return "listaAutores";
+	}
+	
+	@PostMapping("/editar-nombre")
+	public String editarNombre (@RequestParam ("name") String name, @RequestParam ("id") String id){
+		as.editarNombre(id, name);
+		System.out.println(id);
+		return "redirect:/autores/lista";		
+	}
+	
+	
+
 
 }

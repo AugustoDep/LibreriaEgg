@@ -21,9 +21,9 @@ public class Libro {
 	    private Integer ejemplaresRestantes;
 	    private Boolean alta;
 	    
-	    @ManyToOne
+	    @ManyToOne(cascade = CascadeType.ALL)	    
 	    private Autor autor;
-	    @ManyToOne	    
+	    @ManyToOne(cascade = CascadeType.ALL)	    
 	    private Editorial editorial;
 
 	    public Libro(String id, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Boolean alta, Autor autor, Editorial editorial) {
