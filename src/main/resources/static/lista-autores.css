@@ -1,0 +1,12 @@
+@charset "ISO-8859-1";
+*{
+	text-align:center;
+}
+
+.form-control{
+	text-align:left;
+}
+body{
+	margin:2%;
+	background-color: light-blue;
+}
